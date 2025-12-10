@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PII Masking Test Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .test-section {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .test-section h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .test-item {
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #ecf0f1;
+            border-left: 4px solid #3498db;
+        }
+        .test-item label {
+            font-weight: bold;
+            color: #34495e;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .test-item .value {
+            color: #e74c3c;
+            font-family: monospace;
+            font-size: 14px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #bdc3c7;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        textarea {
+            min-height: 100px;
+            font-family: monospace;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .instructions {
+            background-color: #fff3cd;
+            border: 1px solid #ffc107;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .instructions h3 {
+            margin-top: 0;
+            color: #856404;
+        }
+        .instructions ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .instructions li {
+            margin: 5px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        table th, table td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        table th {
+            background-color: #3498db;
+            color: white;
+        }
+        table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .editable-text {
+            min-height: 50px;
+            padding: 10px;
+            border: 2px dashed #3498db;
+            margin-top: 10px;
+            background-color: #fff;
+        }
+        .warning {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+    </style>
+    <!-- <script src="https://quickolabs.com/646871ee-ddba-4fb7-8084-2d59d3e238dc/embed/embed.nocache.js"></script> -->
+    <!-- <script src="https://capturev2.quickolabs.com/ab065a88-74c9-4dd0-b2bd-ca4c5e4f8438/embed/embed.nocache.js"></script> -->
+    <!-- NOTE: Embed script is dynamically injected by test to use correct enterprise ID -->
+</head>
+<body>
+    <div class="header">
+        <h1>🔒 PII Masking Test Page</h1>
+        <p>This page contains various types of Personally Identifiable Information (PII) to test the masking functionality.</p>
+    </div>
+
+    <div class="instructions">
+        <h3>📋 Testing Instructions</h3>
+        <ol>
+            <li>Load the rrweb extension in your browser</li>
+            <li>Open this HTML page</li>
+            <li>Start recording with the extension</li>
+            <li>Interact with the page (type in inputs, select text, etc.)</li>
+            <li>Stop recording and check the recorded events</li>
+            <li>Verify that all PII data shown below is replaced with <code>***</code></li>
+        </ol>
+    </div>
+
+    <!-- Email Tests -->
+    <div class="test-section">
+        <h2>📧 Email Addresses</h2>
+        <div class="test-item">
+            <label>Static Email Text:</label>
+            <div class="value">john.doe@example.com</div>
+        </div>
+        <div class="test-item">
+            <label>Multiple Emails:</label>
+            <div class="value">admin@company.com, support@website.org, info@test.co.uk</div>
+        </div>
+        <div class="form-group">
+            <label>Email Input Field:</label>
+            <input type="email" placeholder="Enter your email" value="user.test@example.com">
+        </div>
+        <div class="form-group">
+            <label>Editable Content (Type here):</label>
+            <div class="editable-text" contenteditable="true">Contact me at contact@privacy-test.com</div>
+        </div>
+    </div>
+
+    <!-- SSN Tests -->
+    <div class="test-section">
+        <h2>🔢 Social Security Numbers (SSN)</h2>
+        <div class="test-item">
+            <label>SSN Format:</label>
+            <div class="value">123-45-6789</div>
+        </div>
+        <div class="test-item">
+            <label>Multiple SSNs:</label>
+            <div class="value">987-65-4321, 555-12-3456</div>
+        </div>
+        <div class="form-group">
+            <label>SSN Input:</label>
+            <input type="text" placeholder="Enter SSN" value="234-56-7890">
+        </div>
+    </div>
+
+    <!-- Credit Card Tests -->
+    <div class="test-section">
+        <h2>💳 Credit Card Numbers</h2>
+        <div class="test-item">
+            <label>Visa Card (spaces):</label>
+            <div class="value">4111 1111 1111 1111</div>
+        </div>
+        <div class="test-item">
+            <label>Visa Card (dashes):</label>
+            <div class="value">4111-1111-1111-1111</div>
+        </div>
+        <div class="test-item">
+            <label>Visa Card (no separator):</label>
+            <div class="value">4111111111111111</div>
+        </div>
+        <div class="test-item">
+            <label>Mastercard:</label>
+            <div class="value">5555555555554444</div>
+        </div>
+        <div class="test-item">
+            <label>American Express:</label>
+            <div class="value">3782-822463-10005</div>
+        </div>
+        <div class="form-group">
+            <label>Credit Card Input:</label>
+            <input type="text" placeholder="Enter card number" value="4532015112830366">
+        </div>
+    </div>
+
+    <!-- IP Address Tests -->
+    <div class="test-section">
+        <h2>🌐 IP Addresses (IPv4)</h2>
+        <div class="test-item">
+            <label>Local IP:</label>
+            <div class="value">192.168.1.1</div>
+        </div>
+        <div class="test-item">
+            <label>Public IP:</label>
+            <div class="value">8.8.8.8</div>
+        </div>
+        <div class="test-item">
+            <label>Multiple IPs:</label>
+            <div class="value">10.0.0.1, 172.16.0.1, 203.0.113.0</div>
+        </div>
+        <div class="form-group">
+            <label>IP Address Input:</label>
+            <input type="text" placeholder="Enter IP" value="192.168.0.100">
+        </div>
+    </div>
+
+    <!-- MAC Address Tests -->
+    <div class="test-section">
+        <h2>🖥️ MAC Addresses</h2>
+        <div class="test-item">
+            <label>MAC with colons:</label>
+            <div class="value">00:1B:63:84:45:E6</div>
+        </div>
+        <div class="test-item">
+            <label>MAC with dashes:</label>
+            <div class="value">00-1B-63-84-45-E6</div>
+        </div>
+        <div class="form-group">
+            <label>MAC Address Input:</label>
+            <input type="text" placeholder="Enter MAC address" value="A1:B2:C3:D4:E5:F6">
+        </div>
+    </div>
+
+    <!-- Date of Birth Tests -->
+    <div class="test-section">
+        <h2>🎂 Date of Birth</h2>
+        <div class="test-item">
+            <label>DOB Format (MM/DD/YYYY):</label>
+            <div class="value">12/31/1990</div>
+        </div>
+        <div class="test-item">
+            <label>DOB Format (M/D/YY):</label>
+            <div class="value">1/5/85</div>
+        </div>
+        <div class="test-item">
+            <label>DOB with dashes:</label>
+            <div class="value">03-15-1975</div>
+        </div>
+        <div class="form-group">
+            <label>Date of Birth Input:</label>
+            <input type="text" placeholder="Enter DOB" value="06/25/1988">
+        </div>
+    </div>
+
+    <!-- ITIN Tests -->
+    <div class="test-section">
+        <h2>🆔 Individual Taxpayer Identification Number (ITIN)</h2>
+        <div class="test-item">
+            <label>ITIN Format:</label>
+            <div class="value">92-1234567</div>
+        </div>
+        <div class="form-group">
+            <label>ITIN Input:</label>
+            <input type="text" placeholder="Enter ITIN" value="93-7654321">
+        </div>
+    </div>
+
+    <!-- Aadhaar Tests -->
+    <div class="test-section">
+        <h2>🇮🇳 Aadhaar Number (India)</h2>
+        <div class="test-item">
+            <label>Aadhaar Format:</label>
+            <div class="value">2234 5678 9012</div>
+        </div>
+        <div class="test-item">
+            <label>Another Aadhaar:</label>
+            <div class="value">9876 5432 1098</div>
+        </div>
+        <div class="form-group">
+            <label>Aadhaar Input:</label>
+            <input type="text" placeholder="Enter Aadhaar" value="3456 7890 1234">
+        </div>
+    </div>
+
+    <!-- PAN Tests -->
+    <div class="test-section">
+        <h2>🇮🇳 PAN Card Number (India)</h2>
+        <div class="test-item">
+            <label>PAN Format:</label>
+            <div class="value">ABCDE1234F</div>
+        </div>
+        <div class="test-item">
+            <label>Another PAN:</label>
+            <div class="value">XYZAB9876C</div>
+        </div>
+        <div class="form-group">
+            <label>PAN Input:</label>
+            <input type="text" placeholder="Enter PAN" value="PQRST5678K">
+        </div>
+    </div>
+
+    <!-- UK National Insurance Number Tests -->
+    <div class="test-section">
+        <h2>🇬🇧 UK National Insurance Number</h2>
+        <div class="test-item">
+            <label>NIN Format:</label>
+            <div class="value">AB123456C</div>
+        </div>
+        <div class="test-item">
+            <label>Another NIN:</label>
+            <div class="value">ZY987654D</div>
+        </div>
+        <div class="form-group">
+            <label>NIN Input:</label>
+            <input type="text" placeholder="Enter NIN" value="CD246801A">
+        </div>
+    </div>
+
+    <!-- USA Passport Tests -->
+    <div class="test-section">
+        <h2>🇺🇸 USA Passport Number</h2>
+        <div class="test-item">
+            <label>Passport Format:</label>
+            <div class="value">A12 34567</div>
+        </div>
+        <div class="test-item">
+            <label>Another Passport:</label>
+            <div class="value">C9876543</div>
+        </div>
+        <div class="form-group">
+            <label>Passport Input:</label>
+            <input type="text" placeholder="Enter Passport" value="B56 78901">
+        </div>
+    </div>
+
+    <!-- Mixed Content Test -->
+    <div class="test-section">
+        <h2>🔀 Mixed PII Content</h2>
+        <div class="test-item">
+            <label>Paragraph with Multiple PII Types:</label>
+            <div class="value">
+                John's email is john.smith@company.com and his SSN is 456-78-9012.
+                He lives at IP address 192.168.1.50 and his credit card is 4111 1111 1111 1111.
+                His date of birth is 05/15/1985 and PAN number is ABCDE1234F.
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Text Area with Mixed Content:</label>
+            <textarea>Customer Details:
+Email: customer@example.org
+SSN: 789-01-2345
+Credit Card: 5105-1051-0510-5100
+IP: 10.20.30.40
+DOB: 12/25/1992
+Aadhaar: 5678 9012 3456</textarea>
+        </div>
+    </div>
+
+    <!-- Table with PII Data -->
+    <div class="test-section">
+        <h2>📊 Customer Data Table</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>SSN</th>
+                    <th>Credit Card</th>
+                    <th>IP Address</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Alice Johnson</td>
+                    <td>alice.j@test.com</td>
+                    <td>111-22-3333</td>
+                    <td>4532 0151 1283 0366</td>
+                    <td>192.168.2.10</td>
+                </tr>
+                <tr>
+                    <td>Bob Williams</td>
+                    <td>bob.w@example.net</td>
+                    <td>444-55-6666</td>
+                    <td>5555-5555-5555-4444</td>
+                    <td>10.0.0.25</td>
+                </tr>
+                <tr>
+                    <td>Carol Martinez</td>
+                    <td>carol.m@company.io</td>
+                    <td>777-88-9999</td>
+                    <td>378282246310005</td>
+                    <td>172.16.0.50</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Password Test (Should also be masked) -->
+    <div class="test-section">
+        <h2>🔐 Password Field Test</h2>
+        <div class="form-group">
+            <label>Password Input (should be masked by maskInputOptions):</label>
+            <input type="password" placeholder="Enter password" value="MySecretPassword123!">
+        </div>
+        <div class="form-group">
+            <label>Regular Text Input:</label>
+            <input type="text" placeholder="Regular text" value="This is normal text without PII">
+        </div>
+    </div>
+
+    <!-- Summary -->
+    <div class="test-section">
+        <h2>✅ Expected Results</h2>
+        <div class="warning">
+            <strong>⚠️ Important:</strong> When you replay the recording, ALL PII data shown on this page
+            should be replaced with <code>***</code>. This includes:
+            <ul>
+                <li>Email addresses</li>
+                <li>Social Security Numbers (SSN)</li>
+                <li>Credit card numbers (Visa, Mastercard, Amex)</li>
+                <li>IP addresses (IPv4)</li>
+                <li>MAC addresses</li>
+                <li>Dates of birth</li>
+                <li>ITIN numbers</li>
+                <li>Aadhaar numbers</li>
+                <li>PAN card numbers</li>
+                <li>UK National Insurance Numbers</li>
+                <li>USA Passport numbers</li>
+                <li>Password field values</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="test-section" style="background-color: #d4edda; border: 2px solid #28a745;">
+        <h2>🎯 Testing Checklist</h2>
+        <div class="form-group">
+            <input type="checkbox" id="check1"> <label for="check1" style="display: inline;">Started recording with rrweb extension</label><br>
+            <input type="checkbox" id="check2"> <label for="check2" style="display: inline;">Scrolled through entire page</label><br>
+            <input type="checkbox" id="check3"> <label for="check3" style="display: inline;">Typed in various input fields</label><br>
+            <input type="checkbox" id="check4"> <label for="check4" style="display: inline;">Edited contenteditable areas</label><br>
+            <input type="checkbox" id="check5"> <label for="check5" style="display: inline;">Selected and highlighted text</label><br>
+            <input type="checkbox" id="check6"> <label for="check6" style="display: inline;">Stopped recording</label><br>
+            <input type="checkbox" id="check7"> <label for="check7" style="display: inline;">Verified all PII is masked as ***</label><br>
+        </div>
+    </div>
+
+    <script>
+        console.log('PII Masking Test Page Loaded');
+        console.log('Total PII patterns being tested: 13');
+        console.log('Make sure rrweb recording is active to test masking!');
+    </script>
+</body>
+</html>
