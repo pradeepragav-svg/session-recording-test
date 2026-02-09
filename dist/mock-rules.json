@@ -1,0 +1,96 @@
+[
+  {
+    "visibility_rules": {
+      "visibility_id": "b2d62652-41b4-47eb-858d-aab8a54f7b3b",
+      "ent_id": "test-enterprise",
+      "where_conditions": [[{
+        "type": "url",
+        "operator": "~",
+        "op1": "pii"
+      }]],
+      "who_conditions": [[]],
+      "when_start_conditions": [[]],
+      "when_end_conditions": [[{
+        "type": "end_time",
+        "ends_type": "x_times",
+        "ends_value": "1"
+      }]],
+      "reference_or_promises": [],
+      "total_visibility_condition_count": 2,
+      "isAsync": false,
+      "evaluated_visibility_condition_count": 0,
+      "isRecurringEvent": false,
+      "visibility_step_collection": {},
+      "when_id": "9f96cf8b-043e-4cb3-b77c-4d24952b4f22",
+      "where_id": "109602a5-9e80-4fe4-8969-75ba18bd9dd6",
+      "who_id": "a6a19544-0f63-409a-b1bf-f3264973dad5"
+    },
+    "visibility_rules_metadata": {
+      "parent_id": "session_recorder:mock_rule_1",
+      "group_type": "session-recorder",
+      "check_once": false
+    }
+  },
+  {
+    "visibility_rules": {
+      "visibility_id": "c8e73763-52c5-48fc-969e-6eb9b65a8c4c",
+      "ent_id": "test-enterprise",
+      "where_conditions": [[{
+        "type": "url",
+        "operator": "~",
+        "op1": "my-test-environment"
+      }]],
+      "who_conditions": [[]],
+      "when_start_conditions": [[]],
+      "when_end_conditions": [[]],
+      "reference_or_promises": [],
+      "total_visibility_condition_count": 1,
+      "isAsync": false,
+      "evaluated_visibility_condition_count": 0,
+      "isRecurringEvent": false,
+      "visibility_step_collection": {},
+      "when_id": "a1b2c3d4-5e6f-7890-abcd-ef1234567890",
+      "where_id": "b2c3d4e5-6f78-9012-bcde-f12345678901",
+      "who_id": "c3d4e5f6-7890-1234-cdef-123456789012"
+    },
+    "visibility_rules_metadata": {
+      "parent_id": "session_recorder:mock_rule_2",
+      "group_type": "session-recorder",
+      "check_once": false
+    }
+  },
+  {
+    "visibility_rules": {
+      "visibility_id": "d9f84874-63d6-59fd-a7ae-7fc0c76b9d5d",
+      "ent_id": "test-enterprise",
+      "where_conditions": [[{
+        "type": "url",
+        "operator": "~",
+        "op1": "my-test-environment"
+      }]],
+      "who_conditions": [[]],
+      "when_start_conditions": [[{
+        "type": "application_state",
+        "operator": "compare",
+        "op1": "local_storage",
+        "op3": "test_sr",
+        "op4": "{\"operator\":\"=\",\"type\":\"number\",\"op1\":\"1\"}"
+      }]],
+      "when_end_conditions": [[]],
+      "reference_or_promises": [],
+      "total_visibility_condition_count": 2,
+      "isAsync": false,
+      "evaluated_visibility_condition_count": 0,
+      "isRecurringEvent": false,
+      "visibility_step_collection": {},
+      "when_id": "d1e2f3g4-5h6i-7j8k-lmno-pq9012345678",
+      "where_id": "e2f3g4h5-6i7j-8k9l-mnop-qr0123456789",
+      "who_id": "f3g4h5i6-7j8k-9l0m-nopq-rs1234567890"
+    },
+    "visibility_rules_metadata": {
+      "parent_id": "session_recorder:mock_rule_3",
+      "group_type": "session-recorder",
+      "check_once": false
+    }
+  }
+]
